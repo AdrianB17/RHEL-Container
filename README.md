@@ -36,14 +36,37 @@
 <p align="left">sudo firewall-cmd --add-port 33069/tcp</p>
 <p align="left">sudo firewall-cmd --add-port 44749/tcp</p>
 
-# ---------Managing Writable Data on Persistent Volumes---------
+# ---------Deploy MySQL---------
 <p align="left">podman search --help</p>
-<p align="left">podman search --limit 1 mysql</p>
-<p align="left">podman pull openshift3/mysql-55-rhel7 </p>
-<p align="left">podman inspect registry.access.redhat.com/openshift3/</p>
-<p align="left">podman pull registry.access.redhat.com/openshift3/mysql-apb </p>
-<p align="left">sudo firewall-cmd --add-port 33069/tcp</p>
-<p align="left">sudo firewall-cmd --add-port 44749/tcp</p>
+<p align="left">podman search mysql</p>
+<p align="left">podman pull registry.access.redhat.com/rhscl/mysql-57-rhel7 </p>
+<p align="left">podman inspect rhscl/mysql-57-rhel7 | grep usage</p>
+
+<p align="left">podman run --name=sql -d -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -e MYSQL_DATABASE=db -p 3306:3306 rhscl/mysql-57-rhel7</p>
+<p align="left">podman ps </p>
+<p align="left">podman port -l</p>
+<p align="left">sudo firewall-cmd --list-all</p>
+<p align="left">sudo firewall-cmd --add-port 3306/tcp</p>
+
+# ----Connecting MySQL--------
+<p align="left">sudo yum install -y mysql</p>
+<p align="left">mysql -uuser -p -h192.168.18.214</p>
+<p align="left">SELECT DATABASE();</p>
+<p align="left">USE db;</p>
+<p align="left">SELECT DATABASE();</p>
+<p align="left">quit</p>
+
+
+# ---- Persistent Volume--------
+<p align="left">sudo yum install -y mysql</p>
+<p align="left">mysql -uuser -p -h192.168.18.214</p>
+<p align="left">SELECT DATABASE();</p>
+<p align="left">USE db;</p>
+<p align="left">SELECT DATABASE();</p>
+<p align="left">quit</p>
+
+
+
 
 
 

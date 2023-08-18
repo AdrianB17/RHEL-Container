@@ -58,12 +58,32 @@
 
 
 # ---- Persistent Volume--------
-<p align="left">sudo yum install -y mysql</p>
-<p align="left">mysql -uuser -p -h192.168.18.214</p>
-<p align="left">SELECT DATABASE();</p>
-<p align="left">USE db;</p>
-<p align="left">SELECT DATABASE();</p>
-<p align="left">quit</p>
+<p align="left">podman ps</p>
+<p align="left">podman exec -it sql /bin/bash</p>
+
+<p align="left">$ id</p>
+<p align="left">$ ps -p1 -f</p>
+<p align="left">$ exit</p>
+
+<p align="left">mkdir mysql</p>
+<p align="left">ls -ld mysql</p>
+<p align="left">chcon -t container_file_t mysql/</p>
+<p align="left">podman unshare id</p>
+<p align="left">podman unshare chown 27 mysql</p>
+<p align="left">ls -ld mysql</p>
+<p align="left">grep ansible /etc/subuid</p>
+<p align="left">ls -ld mysql</p>
+
+
+# ---- Creating Data in MySQL--------
+<p align="left">podman rm -f sql</p>
+<p align="left">podman run --name=sql -v /home/ansible/mysql -d -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -e MYSQL_DATABASE=db -p 3306:3306 rhscl/mysql-57-rhel7</p>
+<p align="left">podman exec -it sql /bin/bash</p>
+
+<p align="left">$ id</p>
+<p align="left">$ ps -p1 -f</p>
+<p align="left">$ exit</p>
+
 
 
 

@@ -54,7 +54,7 @@
 <p align="left">SELECT DATABASE();</p>
 <p align="left">USE db;</p>
 <p align="left">SELECT DATABASE();</p>
-<p align="left">quit</p>
+<p align="left">exit</p>
 
 
 # ---- Persistent Volume--------
@@ -77,14 +77,21 @@
 
 # ---- Creating Data in MySQL--------
 <p align="left">podman rm -f sql</p>
-<p align="left">podman run --name=sql -v /home/ansible/mysql -d -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -e MYSQL_DATABASE=db -p 3306:3306 rhscl/mysql-57-rhel7</p>
-<p align="left">podman exec -it sql /bin/bash</p>
+<p align="left">podman run --name=sql -v /home/ansible/mysql:/var/lib/mysql/data -d -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -e MYSQL_DATABASE=db -p 3306:3306 rhscl/mysql-57-rhel7</p>
+<p align="left">ls mysql</p>
 
-<p align="left">$ id</p>
-<p align="left">$ ps -p1 -f</p>
-<p align="left">$ exit</p>
+$$
+<p align="left">mysql -uuser -p -h192.168.18.214</p>
+<p align="left">USE db;</p>
+<p align="left">show tables;</p>
+<p align="left">create table (;</p>
+<p align="left">-> id int,;</p>
+<p align="left">-> name varchar(10) );</p>
+<p align="left">show tables;</p>
+<p align="left">exit</p>
 
-
+<p align="left">podman stop -l</p>
+<p align="left">podman restart -l</p>
 
 
 

@@ -80,7 +80,6 @@
 <p align="left">podman run --name=sql -v /home/ansible/mysql:/var/lib/mysql/data -d -e MYSQL_USER=user -e MYSQL_PASSWORD=pass -e MYSQL_DATABASE=db -p 3306:3306 rhscl/mysql-57-rhel7</p>
 <p align="left">ls mysql</p>
 
-$$
 <p align="left">mysql -uuser -p -h192.168.18.214</p>
 <p align="left">USE db;</p>
 <p align="left">show tables;</p>

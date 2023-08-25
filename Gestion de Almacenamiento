@@ -1,1 +1,6 @@
+#--Particiones, Formatear--
+
 lsblk -p   #show disks
+parted /dev/vdb #create parted
+mkfs.xfs /dev/vdb1  #formatear
+

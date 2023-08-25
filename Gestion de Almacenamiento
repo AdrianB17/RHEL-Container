@@ -1,4 +1,4 @@
-#--Particiones, Formatear--
+###Particiones, Formatear###
 
 lsblk -p   #show disks
 parted /dev/vdb #create parted
